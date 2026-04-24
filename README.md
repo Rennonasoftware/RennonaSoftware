@@ -1,16 +1,14 @@
-## Hi there 👋
+# SGRSI - Sistema de Gestión de Recursos y Soporte de Informática
 
-<!--
-**Rennonasoftware/RennonaSoftware** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Este proyecto consiste en una plataforma web integral para la gestión de activos tecnológicos, administración de incidencias y control de préstamos.
 
-Here are some ideas to get you started:
+## 📝 Descripción
+Desarrollado por **Reennona Software**, este sistema permite optimizar el soporte técnico mediante una interfaz bilingüe y roles de usuario diferenciados (Administrador, Técnico y Solicitante).
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🚀 Primera Entrega
+- Maquetación Frontend (Mobile First).
+- Diagrama Entidad-Relación (DER).
+- Estructura de persistencia.
+
+---
+*Este es un proyecto estrictamente académico realizado para el curso de 3° de Informática (ITI) en 2026. No representa un producto comercial real.*
