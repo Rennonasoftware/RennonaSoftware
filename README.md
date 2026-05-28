@@ -3,7 +3,7 @@
 Este proyecto consiste en una plataforma web integral para la gestión de activos tecnológicos, administración de incidencias y control de préstamos.
 
 ## 📝 Descripción
-Desarrollado por **Reennona Software**, este sistema permite optimizar el soporte técnico mediante una interfaz bilingüe y roles de usuario diferenciados (Administrador, Técnico y Solicitante).
+Desarrollado por **Reennona Software**, este sistema permite optimizar el soporte técnico con roles de usuario diferenciados (Administrador, Técnico y Solicitante).
 
 ## 🚀 Primera Entrega
 (Cuando se comience se pondran los temas correctamente)

@@ -1,0 +1,81 @@
+main {
+    padding: 2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.reporte-docente {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+.reporte-docente input,
+.reporte-docente select {
+    padding: 0.9rem 0.85rem;
+    border: 1px solid #ccc;
+}
+
+.contenedor-reportes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+.reporte-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+    border-top: 1px dashed #ccc;
+    padding-top: 1rem;
+}
+
+.reporte-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reporte-item-titulo {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-agregar {
+    padding: 0.95rem 1.1rem;
+    border: 1px solid var(--negro);
+    background: transparent;
+    color: var(--negro);
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn-enviar {
+    padding: 0.95rem 1.1rem;
+    border: none;
+    background: var(--negro);
+    color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+}

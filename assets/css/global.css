@@ -5,8 +5,19 @@
 --blanco:  #ffffff;
 --negro: #000000;
 
-
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    top: 0;
+    z-index: 10;
+}
+
+.logout-link {
+    color: var(--negro);
 }

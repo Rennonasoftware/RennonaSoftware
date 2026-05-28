@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/iniciodoc.css">
+    <title>SGRSI - Inicio Docente</title>
+</head>
+<body id="iniciodoc">
+    <header class="top-bar">
+        <h2>Hola "nombre"</h2>
+        <a href="index.html" class="logout-link">Cerrar Sesion</a>
+    </header>
+    <main>
+        <h1>Reportar un problema</h1>
+        <form action="" id="reportedocente" class="reporte-docente">
+            
+            <label for="Laboratorio">Laboratorio</label>
+            <input type="number" id="Laboratorio" placeholder="Ejemplo: 1" name="Laboratorio" required>
+            
+            <label for="Turno">Turno</label>
+            <input type="text" id="Turno" placeholder="Ejemplo: Matutino, Vespertino, Nocturno." name="Turno" required>
+            
+            <label for="grupo">Grupo</label>
+            <input type="text" id="grupo" placeholder="Ejemplo: 3MA" name="Grupo" required>
+            
+            <div id="contenedor-reportes" class="contenedor-reportes">
+                
+                <div class="reporte-item">
+                    <div class="reporte-item-header">
+                        <span class="reporte-item-titulo">Detalle del Problema</span>
+                    </div>
+
+                    <label>Computadora</label>
+                    <input type="number" name="Computadora[]" placeholder="Ejemplo: 1" required>
+                    
+                    <label>¿Tipo de Falla?</label>
+                    <select name="Tipo de Falla[]" required>
+                        <option value="hardware">Hardware / FISICO</option>
+                        <option value="software">Software / VIRTUAL</option>
+                    </select>
+                    
+                    <label>Detalles</label>
+                    <input type="text" name="Detalles[]" placeholder="Ejemplo: No prende la pantalla.">
+                </div>
+
+            </div>
+
+            <div class="botones-container">
+                <button type="button" id="btn-agregar-reporte" class="btn-agregar">
+                    + Añadir otra computadora / falla
+                </button>
+                <button type="submit" class="btn-enviar">Enviar Reporte</button>
+            </div>
+<script>
+        document.getElementById('btn-agregar-reporte').addEventListener('click', function() {
+            const contenedor = document.getElementById('contenedor-reportes');
+            const primerItem = contenedor.querySelector('.reporte-item');
+        
+            const nuevoItem = primerItem.cloneNode(true);
+        
+            nuevoItem.querySelectorAll('input').forEach(input => input.value = '');
+            nuevoItem.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+            
+            contenedor.appendChild(nuevoItem);
+            
+        });
+    </script>
+    </form>
+    </main>
+</body>
+</html>
