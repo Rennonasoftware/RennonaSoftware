@@ -18,6 +18,6 @@ body {
     z-index: 10;
 }
 
-.logout-link {
+a {
     color: var(--negro);
 }

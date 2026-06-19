@@ -1,5 +1,5 @@
 main {
-    padding: 2rem 1.2rem;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,6 @@ main h1 {
 
 .reporte-docente {
     width: 100%;
-    max-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 0.95rem;
@@ -31,12 +30,13 @@ main h1 {
     gap: 0.95rem;
 }
 
-.reporte-item {
+fieldset.reporte-item {
     display: flex;
     flex-direction: column;
     gap: 0.95rem;
     width: 100%;
     margin-top: 1rem;
+    border: none;
     border-top: 1px dashed #ccc;
     padding-top: 1rem;
 }
@@ -47,7 +47,7 @@ main h1 {
     align-items: center;
 }
 
-.reporte-item-titulo {
+legend.reporte-item-titulo {
     font-weight: bold;
     font-size: 0.9rem;
     color: #555;
@@ -78,4 +78,17 @@ main h1 {
     color: #ffffff;
     cursor: pointer;
     width: 100%;
+}
+@media (min-width: 576px) {
+    main {
+        padding: 2rem 1.2rem;
+    }
+    .reporte-docente {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .reporte-docente {
+        max-width: 720px;
+    }
 }
