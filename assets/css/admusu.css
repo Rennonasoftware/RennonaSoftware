@@ -1,0 +1,16 @@
+.seleccionar-accion-AEM {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    margin-bottom: 2rem;
+}
+.reporte-docente h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+.seleccionar-accion-AEM select {
+    padding: 0.9rem 0.85rem;
+    border: 1px solid #ccc;
+}
