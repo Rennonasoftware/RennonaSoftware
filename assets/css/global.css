@@ -21,3 +21,15 @@ body {
 a {
     color: var(--negro);
 }
+body {
+    font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+
+
