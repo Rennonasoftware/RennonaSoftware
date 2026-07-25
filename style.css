@@ -5,89 +5,100 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+body#inicioadm {
     background-color: #f4f6f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.login-container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     width: 100%;
-    max-width: 400px;
 }
 
-.login-header {
-    text-align: center;
-    margin-bottom: 30px;
+.top-bar-left h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+}
+
+.top-bar-right .nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link-blue {
+    color: #3b82f6;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 80px;
+    padding-bottom: 40px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 440px;
 }
 
 .login-header h2 {
-    color: #000000;
+    text-align: center;
     font-size: 26px;
-    margin-bottom: 5px;
-}
-
-.login-header p {
-    color: #ffffff;
-    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 40px;
 }
 
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #000000;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .input-group input {
     width: 100%;
-    padding: 12px;
+    padding: 12px 14px;
     border: 1px solid #d1d5db;
     border-radius: 6px;
-    font-size: 15px;
-    transition: border-color 0.2s;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
 }
 
-.input-group input:focus {
-    outline: none;
-    border-color: #ffff;
+.input-group input::placeholder {
+    color: #9ca3af;
 }
 
 .btn-login {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     background-color: #000000;
-    color: white;
+    color: #ffffff;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-login:hover {
-    background-color: #000000;
-}
-
-.credentials-hint {
-    margin-top: 25px;
-    padding: 12px;
-    background-color: #eff6ff;
-    border-left: 4px solid #000000;
-    border-radius: 4px;
-    font-size: 12px;
-    color: #000000;
-    line-height: 1.6;
+    margin-top: 10px;
 }
