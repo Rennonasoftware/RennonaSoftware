@@ -1,0 +1,23 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.seccionlogin {
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    line-height: 2;
+}
+img {
+    width: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+legend {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
