@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGRSI - Administrar Usuarios</title>
-    <script src="assets/js/verificarinicio.js"></script>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/admusu.css">
     <link rel="stylesheet" href="assets/css/iniciodoc.css">
@@ -15,7 +14,7 @@
         <h2>Administrar Usuarios</h2>
         <nav>
             <a href="inicioadm.html">Volver a la página principal</a>
-            <a href="#" id="btn-cerrar-sesion" class="logout-link">Cerrar Sesion</a>
+            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>

@@ -8,7 +8,6 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>SGRSI - Solicitar Aula</title>
-    <script src="assets/js/verificarinicio.js"></script>
 </head>
 <body id="solicitudaula">
     <header class="top-bar">
@@ -16,7 +15,7 @@
         <nav>
             <a href="iniciodoc.html" class="btn-solicitud">Volver a Reportar</a>
             <a href="misreportes.html" class="btn-mirar-reportes">Ver mis reportes</a>
-            <a href="#" id="btn-cerrar-sesion" class="logout-link">Cerrar Sesion</a>
+            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>

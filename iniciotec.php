@@ -6,13 +6,12 @@
     <title>SGRSI - Inicio Tecnico</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="assets/js/verificarinicio.js"></script>
 </head>
 <body>
     <header class="top-bar">
         <h2>Bienvenido, Tecnico</h2>
         <nav>
-            <a href="#" id="btn-cerrar-sesion" class="logout-link">Cerrar Sesion</a>
+            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <script src="assets/js/cerrarsesion.js"></script>

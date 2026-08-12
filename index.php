@@ -33,6 +33,5 @@
     <footer>
         <p>Sistema de Gestion de Recursos y Soporte de Informatica.</p>
     </footer>
-    <script src="assets/js/login.js"></script>
 </body>
 </html>

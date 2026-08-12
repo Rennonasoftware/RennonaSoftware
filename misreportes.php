@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/misreportes.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="assets/js/verificarinicio.js"></script>
     <script src="assets/js/misreportes.js"></script>
     <title>Mis Reportes - SGRSI</title>
 </head>
@@ -16,7 +15,7 @@
         <nav>
             <a href="iniciodoc.html">Volver</a>
             <a href="solicitudaula.html">Solicitar Aula</a>
-            <a href="#" id="btn-cerrar-sesion" class="logout-link">Cerrar Sesion</a>
+            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>

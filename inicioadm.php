@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGRSI - Inicio Admin</title>
-    <script src="assets/js/verificarinicio.js"></script>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/inicioadm.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -14,7 +13,7 @@
         <h2>Bienvenido, Admin</h2>
         <nav>
             <a href="admusu.html">Administrar Usuarios</a>
-            <a href="#" id="btn-cerrar-sesion" class="logout-link">Cerrar Sesion</a>
+            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <script src="assets/js/admin.js"></script>
