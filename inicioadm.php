@@ -12,7 +12,7 @@
         <header class="top-bar">
         <h2>Bienvenido, Admin</h2>
         <nav>
-            <a href="admusu.html">Administrar Usuarios</a>
+            <a href="admusu.php">Administrar Usuarios</a>
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
