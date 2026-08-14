@@ -13,8 +13,8 @@
     <header class="top-bar">
         <h2>Mis Reportes</h2>
         <nav>
-            <a href="iniciodoc.html">Volver</a>
-            <a href="solicitudaula.html">Solicitar Aula</a>
+            <a href="iniciodoc.php">Volver</a>
+            <a href="solicitudaula.php">Solicitar Aula</a>
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>

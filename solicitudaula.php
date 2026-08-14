@@ -13,8 +13,8 @@
     <header class="top-bar">
         <h2>Bienvenido, Docente</h2>
         <nav>
-            <a href="iniciodoc.html" class="btn-solicitud">Volver a Reportar</a>
-            <a href="misreportes.html" class="btn-mirar-reportes">Ver mis reportes</a>
+            <a href="iniciodoc.php" class="btn-solicitud">Volver a Reportar</a>
+            <a href="misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
@@ -54,6 +54,5 @@
             </footer>
         </form>
     </main>
-    <script src="assets/js/cerrarsesion.js"></script>
 </body>
 </html>

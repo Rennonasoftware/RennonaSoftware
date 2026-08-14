@@ -11,6 +11,7 @@
 <body id="inicioadm">
         <header class="top-bar">
         <h2>Bienvenido, Admin</h2>
+        
         <nav>
             <a href="admusu.php">Administrar Usuarios</a>
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>

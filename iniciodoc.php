@@ -12,8 +12,8 @@
     <header class="top-bar">
         <h2>Bienvenido, Docente</h2>
         <nav>
-            <a href="solicitudaula.html" class="btn-solicitud">Solicitar aula</a>
-            <a href="misreportes.html" class="btn-mirar-reportes">Ver mis reportes</a>
+            <a href="solicitudaula.php" class="btn-solicitud">Solicitar aula</a>
+            <a href="misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
@@ -63,7 +63,6 @@
                 <button type="submit" class="btn-enviar">Enviar Reporte</button>
             </footer>
     <script src="assets/js/btnreporte.js"></script>
-    <script src="assets/js/cerrarsesion.js"></script>
     </form>
     </main>
 </body>

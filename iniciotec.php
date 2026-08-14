@@ -14,6 +14,5 @@
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
-    <script src="assets/js/cerrarsesion.js"></script>
 </body>
 </html>
