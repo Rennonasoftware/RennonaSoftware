@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGRSI - Administrar Usuarios</title>
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/admusu.css">
-    <link rel="stylesheet" href="assets/css/iniciodoc.css">
+    <link rel="stylesheet" href="/public/assets/css/global.css">
+    <link rel="stylesheet" href="/public/assets/css/iniciodoc.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body id="admusu">
     <header class="top-bar">
         <h2>Administrar Usuarios</h2>
         <nav>
-            <a href="inicioadm.html">Volver a la página principal</a>
+            <a href="inicioadm.php">Volver a la página principal</a>
             <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
@@ -75,7 +74,6 @@
             </section>
         </form>
     </main>
-    <script src="assets/js/admusu.js"></script>
-    <script src="assets/js/cerrarsesion.js"></script>
+    <script src="/public/assets/js/admusu.js"></script>
 </body>
 </html>

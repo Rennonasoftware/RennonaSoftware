@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="/public/assets/css/global.css">
+    <link rel="stylesheet" href="/public/assets/css/login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>SGRSI - Inicio de sesion</title>
 </head>
 <body>
 <header>
     <h1>SGRSI</h1>
-    <img src="/assets/img/logoiti.png" alt="Logo ITI">
+    <img src="/public/assets/img/logoiti.png" alt="Logo ITI">
 </header>
     <h2>Inicio de sesion</h2>
     <section class="seccionlogin">
