@@ -15,7 +15,7 @@
 </header>
     <h2>Inicio de sesion</h2>
     <section class="seccionlogin">
-    <form id="loginForm">
+    <form id="loginForm" action="../controlador/procesarlogin.php" method="POST">
         <fieldset>
             <legend>Ingrese sus datos de acceso</legend>
                 <div class="input-group">

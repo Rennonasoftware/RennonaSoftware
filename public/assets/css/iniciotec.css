@@ -1,7 +1,127 @@
-img {
+main {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+section {
     width: 100%;
-    height: auto;
-    max-width: 700px;
-    display: block;
-    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--negro);
+    padding: 0 0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+form input, form select, form textarea {
+    padding: 0.9rem 0.85rem;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+.modulo-catalogo {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.modulo-catalogo ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.modulo-catalogo li {
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+button {
+    padding: 0.95rem 1.1rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-guardar, .btn-prestar {
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+.btn-devolver {
+    background: transparent;
+    border: 1px solid var(--negro);
+    color: var(--negro);
+}
+
+.botones-accion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #inventario {
+        flex-direction: row;
+        align-items: flex-start;
+        margin: auto;
+    }
+
+    .modulo-prestamo, .modulo-catalogo {
+        flex: 1; 
+    }
+
+    .botones-accion {
+        flex-direction: row;
+    }
+    
+    .botones-accion button {
+        flex: 1;
+    }
 }
