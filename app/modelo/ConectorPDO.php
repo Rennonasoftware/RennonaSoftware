@@ -17,19 +17,25 @@ class ConectorPDO {
         // Calculamos la ruta al archivo .env (2 niveles arriba: desde app/modelo/ hacia la raíz)
         $rutaEnv = __DIR__ . '/../../.env';
 
-        // Verificamos si el archivo .env existe
+        $env = [];
         if (file_exists($rutaEnv)) {
             // parse_ini_file lee el .env y lo convierte en un arreglo asociativo
-            $env = parse_ini_file($rutaEnv);
-            
-            $this->host    = $env['DB_HOST'];
-            $this->db      = $env['DB_NAME'];
-            $this->user    = $env['DB_USER'];
-            $this->pass    = $env['DB_PASS'];
-            $this->charset = $env['DB_CHARSET'];
-            } else {
-            // Esto te dirá exactamente dónde está buscando PHP el archivo
-            die("Error crítico: No encuentro el archivo .env en esta ruta: " . realpath(__DIR__ . '/../../'));
+            $parsed = parse_ini_file($rutaEnv);
+            if ($parsed !== false) {
+                $env = $parsed;
+            }
+        }
+
+        // Fallback a variables de entorno si faltan claves en .env
+        $this->host    = isset($env['DB_HOST']) ? $env['DB_HOST'] : getenv('DB_HOST');
+        $this->db      = isset($env['DB_NAME']) ? $env['DB_NAME'] : getenv('DB_NAME');
+        $this->user    = isset($env['DB_USER']) ? $env['DB_USER'] : getenv('DB_USER');
+        $this->pass    = isset($env['DB_PASS']) ? $env['DB_PASS'] : getenv('DB_PASS');
+        $this->charset = isset($env['DB_CHARSET']) ? $env['DB_CHARSET'] : getenv('DB_CHARSET');
+
+        // Validar elementos requeridos y lanzar excepción en lugar de terminar el proceso
+        if (empty($this->host) || empty($this->db) || empty($this->user)) {
+            throw new Exception("Configuración de BD incompleta. Comprueba .env o las variables de entorno (DB_HOST, DB_NAME, DB_USER). Ruta buscada: " . realpath(__DIR__ . '/../../'));
         }
     }
 
@@ -50,8 +56,8 @@ class ConectorPDO {
             $conexion = new PDO($dsn, $this->user, $this->pass, $opciones);
             return $conexion;
         } catch (PDOException $e) {
-            // ESTO ES MAGIA: Imprimirá en pantalla el motivo exacto del rechazo
-            die("Error de PDO al conectar a la BD: " . $e->getMessage());
+            // Re-lanzar como excepción genérica para que el llamador la gestione
+            throw new Exception("Error de PDO al conectar a la BD: " . $e->getMessage());
         }
     }
 }

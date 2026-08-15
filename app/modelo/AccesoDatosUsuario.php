@@ -6,11 +6,21 @@ class AccesoDatosUsuario {
     private $conexion;
 
     public function __construct() {
-        $conector = new ConectorPDO();
-        $this->conexion = $conector->conectar();
+        try {
+            $conector = new ConectorPDO();
+            $this->conexion = $conector->conectar();
+        } catch (Exception $e) {
+            error_log("AccesoDatosUsuario: no se pudo establecer la conexión a la BD: " . $e->getMessage());
+            $this->conexion = null;
+        }
     }
 
     public function obtenerPorCedula($cedula) {
+        if ($this->conexion === null) {
+            error_log("AccesoDatosUsuario::obtenerPorCedula llamado sin conexión a BD");
+            return null;
+        }
+
         try {
             // Usamos GROUP_CONCAT para traer todos los roles del usuario en una sola fila
             $sql = "SELECT u.cedula, u.password_hash AS password, GROUP_CONCAT(LOWER(r.nombre_rol)) AS roles_asignados 
