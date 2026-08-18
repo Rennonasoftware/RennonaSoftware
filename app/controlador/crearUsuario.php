@@ -7,3 +7,4 @@ if (isset($data['cedula'], $data['password'], $data['rol'])) {
     $modelo = new AccesoDatosUsuario();
     $exito = $modelo->crearUsuario($data['cedula'], $data['password'], $data['rol']);
     echo json_encode(['status' => $exito ? 'success' : 'error']);
+}
