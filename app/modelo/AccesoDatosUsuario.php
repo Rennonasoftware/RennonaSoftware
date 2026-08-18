@@ -44,5 +44,30 @@ class AccesoDatosUsuario {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         return $stmt = $this->conexion->prepare($sql)->execute([':cedula' => $cedula, ':pass' => $hash]);
     }
+    public function obtenerPorCedula($cedula) {
+        // Buscamos al usuario y sus roles cruzando las tablas
+        $sql = "SELECT u.cedula, u.password_hash, r.nombre_rol 
+                FROM usuarios u
+                LEFT JOIN usuario_rol ur ON u.cedula = ur.cedula
+                LEFT JOIN roles r ON ur.id_rol = r.id_rol
+                WHERE u.cedula = :cedula AND u.estado = 1";
+                
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute([':cedula' => $cedula]);
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($resultados) > 0) {
+            $roles = [];
+            foreach ($resultados as $fila) {
+                if (!empty($fila['nombre_rol'])) {
+                    $roles[] = strtolower($fila['nombre_rol']); 
+                }
+            }
+            $hash = $resultados[0]['password_hash'];
+            return new Usuario($cedula, null, null, $hash, $roles);
+        }
+        
+        return null;
+    }
 }
 
