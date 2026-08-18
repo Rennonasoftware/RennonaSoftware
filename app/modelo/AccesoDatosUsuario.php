@@ -10,50 +10,39 @@ class AccesoDatosUsuario {
             $conector = new ConectorPDO();
             $this->conexion = $conector->conectar();
         } catch (Exception $e) {
-            error_log("AccesoDatosUsuario: no se pudo establecer la conexión a la BD: " . $e->getMessage());
+            error_log("Error de conexión: " . $e->getMessage());
             $this->conexion = null;
         }
     }
 
-    public function obtenerPorCedula($cedula) {
-        if ($this->conexion === null) {
-            error_log("AccesoDatosUsuario::obtenerPorCedula llamado sin conexión a BD");
-            return null;
-        }
+    public function obtenerTodosLosUsuarios() {
+        $sql = "SELECT u.cedula, GROUP_CONCAT(r.nombre_rol) AS roles 
+                FROM usuarios u
+                LEFT JOIN usuario_rol ur ON u.cedula = ur.cedula
+                LEFT JOIN roles r ON ur.id_rol = r.id_rol
+                WHERE u.estado = 1 GROUP BY u.cedula";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-        try {
-            // Usamos GROUP_CONCAT para traer todos los roles del usuario en una sola fila
-            $sql = "SELECT u.cedula, u.password_hash AS password, GROUP_CONCAT(LOWER(r.nombre_rol)) AS roles_asignados 
-                    FROM usuarios u
-                    LEFT JOIN usuario_rol ur ON u.cedula = ur.cedula
-                    LEFT JOIN roles r ON ur.id_rol = r.id_rol
-                    WHERE u.cedula = :cedula AND u.estado = 1
-                    GROUP BY u.cedula";
+    public function crearUsuario($cedula, $password, $rol) {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO usuarios (cedula, password_hash, estado) VALUES (:cedula, :pass, 1)";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([':cedula' => $cedula, ':pass' => $hash]);
+    }
 
-            $stmt = $this->conexion->prepare($sql);
-            $stmt->bindParam(':cedula', $cedula, PDO::PARAM_STR);
-            $stmt->execute();
+    public function eliminarUsuario($cedula) {
+        $sql = "UPDATE usuarios SET estado = 0 WHERE cedula = :cedula";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([':cedula' => $cedula]);
+    }
 
-            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($fila) {
-                // Convertimos el string "docente,tecnico" a un array ['docente', 'tecnico']
-                $arregloRoles = $fila['roles_asignados'] ? explode(',', $fila['roles_asignados']) : ['docente'];
-
-                return new Usuario(
-                    $fila['cedula'],
-                    '', 
-                    '', 
-                    $fila['password'], 
-                    $arregloRoles // Pasamos el array al objeto
-                );
-            }
-
-            return null;
-        } catch (PDOException $e) {
-            error_log("Error al obtener usuario: " . $e->getMessage());
-            return null;
-        }
+    public function modificarUsuario($cedula, $password, $rol) {
+        $sql = "UPDATE usuarios SET password_hash = :pass WHERE cedula = :cedula";
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        return $stmt = $this->conexion->prepare($sql)->execute([':cedula' => $cedula, ':pass' => $hash]);
     }
 }
-?>
+

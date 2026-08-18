@@ -74,6 +74,5 @@
             </section>
         </form>
     </main>
-    <script src="/public/assets/js/admusu.js"></script>
-</body>
+   <script src="public/assets/js/admusu.js"></script>
 </html>
