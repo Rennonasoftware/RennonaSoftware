@@ -12,9 +12,9 @@
     <header class="top-bar">
         <h2>Bienvenido, Docente</h2>
         <nav>
-            <a href="solicitudaula.php" class="btn-solicitud">Solicitar aula</a>
-            <a href="misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
-            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
+            <a href="/public/solicitudaula.php" class="btn-solicitud">Solicitar aula</a>
+            <a href="/public/misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
+            <a href="/public/cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>

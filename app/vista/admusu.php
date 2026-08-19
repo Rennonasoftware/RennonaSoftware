@@ -12,8 +12,8 @@
     <header class="top-bar">
         <h2>Administrar Usuarios</h2>
         <nav>
-            <a href="inicioadm.php">Volver a la página principal</a>
-            <a href="cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
+            <a href="/public/inicioadm.php">Volver a la página principal</a>
+            <a href="/public/cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>
@@ -74,5 +74,5 @@
             </section>
         </form>
     </main>
-   <script src="public/assets/js/admusu.js"></script>
+   <script src="/public/assets/js/admusu.js"></script>
 </html>

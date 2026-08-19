@@ -1,6 +1,6 @@
 <?php
 require_once 'ConectorPDO.php';
-require_once 'Usuario.php';
+require_once 'usuario.php';
 
 class AccesoDatosUsuario {
     private $conexion;

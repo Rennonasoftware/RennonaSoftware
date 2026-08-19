@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordInput = $_POST['password'] ?? '';
 
     if (empty($cedulaInput) || empty($passwordInput)) {
-        header("Location: ../vista/index.php?error=campos_vacios");
+        header("Location: /public/index.php?error=campos_vacios");
         exit();
     }
 
@@ -17,29 +17,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($usuario && password_verify($passwordInput, $usuario->getPassword())) {
 
-        // Obtenemos el ARRAY de roles (ej: ['docente', 'tecnico'])
         $roles = $usuario->getRoles();
 
         $_SESSION['cedula'] = $usuario->getCedula();
-        $_SESSION['roles']  = $roles; // Esto hará que tu verificarsesion.php funcione perfecto
+        $_SESSION['roles']  = $roles; 
 
-        // Redirección por jerarquía (Admin > Técnico > Docente)
         if (in_array('administrador', $roles) || in_array('admin', $roles)) {
-            header("Location: ../vista/inicioadm.php");
+            header("Location: /public/administrador.php");
         } elseif (in_array('tecnico', $roles)) {
-            header("Location: ../vista/iniciotec.php");
+            header("Location: /public/iniciotec.php");
         } else {
-            header("Location: ../vista/iniciodoc.php");
+            header("Location: /public/iniciodoc.php");
         }
         exit();
 
     } else {
-        header("Location: ../vista/index.php?error=credenciales_invalidas");
+        header("Location: /public/index.php?error=credenciales_invalidas");
         exit();
     }
 
 } else {
-    header("Location: ../vista/index.php");
+    header("Location: /public/index.php");
     exit();
 }
 ?>
