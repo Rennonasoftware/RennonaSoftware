@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+$mensajesError = [
+    'campos_vacios'         => 'Por favor, completa todos los campos.',
+    'credenciales_invalidas' => 'Cédula o contraseña incorrectas.',
+    'inactive_user'         => 'Tu cuenta de usuario se encuentra inactiva.',
+    'no_roles'              => 'El usuario no tiene roles asignados.',
+    'unauthenticated'       => 'Debes iniciar sesión para acceder al sistema.',
+    'unauthorized'          => 'No tienes permisos para acceder a este panel.'
+];
+
+$codigoError = $_GET['error'] ?? null;
+$mensajeMostrar = $mensajesError[$codigoError] ?? null;
+?>
+
+<?php if ($mensajeMostrar): ?>
+    <div class="alert alert-danger" style="color: red; padding: 10px; border: 1px solid red; margin-bottom: 15px;">
+        <?php echo htmlspecialchars($mensajeMostrar); ?>
+    </div>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

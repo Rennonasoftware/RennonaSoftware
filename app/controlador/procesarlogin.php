@@ -17,8 +17,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($usuario && password_verify($passwordInput, $usuario->getPassword())) {
 
+        // Validar si el usuario está activo
+        if (!$usuario->estaActivo()) {
+            header("Location: ../vista/index.php?error=inactive_user");
+            exit();
+        }
+
         // Obtenemos el ARRAY de roles (ej: ['docente', 'tecnico'])
         $roles = $usuario->getRoles();
+
+        // Validar si el usuario no tiene roles habilitados
+        if (empty($roles)) {
+            header("Location: ../vista/index.php?error=no_roles");
+            exit();
+        }
 
         $_SESSION['cedula'] = $usuario->getCedula();
         $_SESSION['roles']  = $roles; // Esto hará que tu verificarsesion.php funcione perfecto
