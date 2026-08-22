@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/global.css">
-    <link rel="stylesheet" href="/public/assets/css/iniciodoc.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/global.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/iniciodoc.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>SGRSI - Inicio Docente</title>
 </head>
@@ -12,14 +12,14 @@
     <header class="top-bar">
         <h2>Bienvenido, Docente</h2>
         <nav>
-            <a href="/public/solicitudaula.php" class="btn-solicitud">Solicitar aula</a>
-            <a href="/public/misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
-            <a href="/public/cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
+            <a href="/RennonaSoftware/public/solicitudaula.php" class="btn-solicitud">Solicitar aula</a>
+            <a href="/RennonaSoftware/public/misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
+            <a href="/RennonaSoftware/public/cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>
         <h1>Reportar un problema</h1>
-        <form action="" id="reportedocente" class="reporte-docente">
+        <form action="/RennonaSoftware/app/controlador/procesarReporte.php" method="POST" id="reportedocente" class="reporte-docente">
             
             <label for="Laboratorio">Laboratorio</label>
             <input type="number" id="Laboratorio" placeholder="Ejemplo: 1" name="Laboratorio" required>
@@ -44,7 +44,7 @@
                     <input type="number" name="Computadora[]" placeholder="Ejemplo: 1" required>
                     
                     <label>¿Tipo de Falla?</label>
-                    <select name="Tipo de Falla[]" required>
+                        <select name="Tipo_de_Falla[]" required>
                         <option value="hardware">Hardware / FISICO</option>
                         <option value="software">Software / VIRTUAL</option>
                         <option value="otro">Otro</option>

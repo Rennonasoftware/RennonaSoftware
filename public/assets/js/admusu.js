@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function mostrarFormulario() {
 
+        // Solo se muestra el formulario correspondiente a la opción seleccionada.
         formAgregar.style.display = 'none';
         formEliminar.style.display = 'none';
         formModificar.style.display = 'none';
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             try {
+                // fetch envía JSON al controlador sin recargar la página.
 
                 const response = await fetch(
                     '/RennonaSoftware/app/controlador/crearUsuario.php',
@@ -71,12 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 );
 
-                const resultado =
-                    await response.json();
+                const mensaje = await response.text();
 
-                alert(resultado.message);
+                alert(mensaje);
 
-                if (resultado.status === 'success') {
+                if (response.ok) {
                     formAgregar.reset();
                 }
 
@@ -122,12 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 );
 
-                const resultado =
-                    await response.json();
+                const mensaje = await response.text();
 
-                alert(resultado.message);
+                alert(mensaje);
 
-                if (resultado.status === 'success') {
+                if (response.ok) {
                     formEliminar.reset();
                 }
 
@@ -184,12 +184,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 );
 
-                const resultado =
-                    await response.json();
+                const mensaje = await response.text();
 
-                alert(resultado.message);
+                alert(mensaje);
 
-                if (resultado.status === 'success') {
+                if (response.ok) {
                     formModificar.reset();
                 }
 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/global.css">
-    <link rel="stylesheet" href="/public/assets/css/solicitudaula.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/global.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/solicitudaula.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>SGRSI - Solicitar Aula</title>
@@ -13,14 +13,14 @@
     <header class="top-bar">
         <h2>Bienvenido, Docente</h2>
         <nav>
-            <a href="/public/iniciodoc.php" class="btn-solicitud">Volver a Reportar</a>
-            <a href="/public/misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
-            <a href="/public/cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
+            <a href="/RennonaSoftware/public/iniciodoc.php" class="btn-solicitud">Volver a Reportar</a>
+            <a href="/RennonaSoftware/public/misreportes.php" class="btn-mirar-reportes">Ver mis reportes</a>
+            <a href="/RennonaSoftware/public/cerrarSesion.php" class="logout-link">Cerrar Sesion</a>
         </nav>
     </header>
     <main>
         <h1>Solicitar Reserva de Aula</h1>
-        <form action="" id="solicitudAulaForm" class="reporte-docente">
+        <form action="/RennonaSoftware/app/controlador/procesarSolicitudAula.php" method="POST" id="solicitudAulaForm" class="reporte-docente">
             
             <label for="Laboratorio">Laboratorio / Aula Solicitada</label>
             <input type="number" id="Laboratorio" placeholder="Ejemplo: 2" name="Laboratorio" min="1" required>

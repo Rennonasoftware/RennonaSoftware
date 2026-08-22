@@ -1,21 +1,33 @@
+<?php
+$mensajesError = [
+    'campos_vacios' => 'Completa la cédula y la contraseña.',
+    'credenciales_invalidas' => 'La cédula o la contraseña son incorrectas.',
+    'no_sesion' => 'Debes iniciar sesión para continuar.',
+    'no_autorizado' => 'No tienes permiso para acceder a esa sección.'
+];
+$mensajeError = $mensajesError[$_GET['error'] ?? ''] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/global.css">
-    <link rel="stylesheet" href="/public/assets/css/login.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/global.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>SGRSI - Inicio de sesion</title>
 </head>
 <body>
 <header>
     <h1>SGRSI</h1>
-    <img src="/public/assets/img/logoiti.png" alt="Logo ITI">
+    <img src="/RennonaSoftware/public/assets/img/logoiti.png" alt="Logo ITI">
 </header>
     <h2>Inicio de sesion</h2>
     <section class="seccionlogin">
-    <form id="loginForm" action="/app/controlador/procesarlogin.php" method="POST">
+    <?php if ($mensajeError !== ''): ?>
+        <p class="mensaje-error" role="alert"><?php echo htmlspecialchars($mensajeError, ENT_QUOTES, 'UTF-8'); ?></p>
+    <?php endif; ?>
+    <form id="loginForm" action="/RennonaSoftware/app/controlador/procesarlogin.php" method="POST">
         <fieldset>
             <legend>Ingrese sus datos de acceso</legend>
                 <div class="input-group">
@@ -24,7 +36,7 @@
                 </div>
                 <div class="input-group">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" autocomplete="current-password" minlength="12" required>
+                    <input type="password" id="password" name="password" autocomplete="current-password" minlength="7" required>
                 </div>
                 <button type="submit">Iniciar sesion</button>
         </fieldset>

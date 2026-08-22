@@ -86,7 +86,7 @@
             type="password"
             id="password"
             name="password"
-            minlength="12"
+            minlength="7"
             required
         >
 
@@ -104,8 +104,8 @@
                 Docente
             </option>
 
-            <option value="Logistica">
-                Logística
+            <option value="Tecnico">
+                Técnico
             </option>
 
         </select>
@@ -171,7 +171,7 @@
         <input
             type="password"
             id="nuevo-password"
-            minlength="12"
+            minlength="7"
             placeholder="Dejar vacío para mantener actual"
         >
 
@@ -193,8 +193,8 @@
                 Docente
             </option>
 
-            <option value="Logistica">
-                Logística
+            <option value="Tecnico">
+                Técnico
             </option>
 
         </select>

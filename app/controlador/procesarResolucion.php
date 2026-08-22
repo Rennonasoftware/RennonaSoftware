@@ -1,18 +1,17 @@
 <?php
 session_start();
-require_once '../modelo/AccesoDatosReporte.php';
+require_once __DIR__ . '/../modelo/AccesosDatoReporte.php';
 
 /**
  * @brief Controlador que procesa la resolución (cierre) de un ticket.
  */
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['rol']) && $_SESSION['rol'] === 'tecnico') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['roles']) && in_array('tecnico', $_SESSION['roles'], true)) {
     
-    $idReporte = filter_input(INPUT_POST, 'id_reporte', FILTER_SANITIZE_NUMBER_INT);
-    // Sanitizamos el campo opcional de forma compatible con PHP 8.1+
-    $observacionesRaw = filter_input(INPUT_POST, 'observaciones', FILTER_UNSAFE_RAW);
-    $observaciones = $observacionesRaw !== null && $observacionesRaw !== false ? trim(strip_tags($observacionesRaw)) : '';
+    $idReporte = (int) ($_POST['id_reporte'] ?? 0);
+    $observaciones = trim(strip_tags($_POST['observaciones'] ?? ''));
 
+    // Las observaciones son opcionales, pero el reporte debe estar identificado.
     if ($idReporte !== null && $idReporte !== false && $idReporte !== '') {
         $acceso = new AccesoDatosReporte();
         // NOTA: Debes agregar el método 'resolverTicket' en tu clase AccesoDatosReporte
@@ -21,6 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['rol']) && $_SESSIO
     }
 }
 
-header('Location: ../vista/iniciotec.php');
+header('Location: /RennonaSoftware/public/iniciotec.php');
 exit();
 ?>

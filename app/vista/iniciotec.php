@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Técnico - RennonaSoftware</title>
-    <link rel="stylesheet" href="../../public/assets/css/global.css">
-    <link rel="stylesheet" href="../../public/assets/css/iniciotec.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/global.css">
+    <link rel="stylesheet" href="/RennonaSoftware/public/assets/css/iniciotec.css">
 </head>
 <body>
     <main class="contenedor-tecnico">
         <header class="header-tecnico">
-            <h1 class="titulo-panel">Panel de Trabajo: <?php echo htmlspecialchars($_SESSION['nombre']); ?></h1>
+            <h1 class="titulo-panel">Panel de Trabajo: <?php echo htmlspecialchars($_SESSION['cedula']); ?></h1>
             <p class="subtitulo-panel">Gestión de tickets y mantenimientos pendientes.</p>
             <nav class="nav-usuario">
-                <a href="cerrarSesion.php" class="btn-logout">Cerrar Sesión</a>
+                <a href="/RennonaSoftware/public/cerrarSesion.php" class="btn-logout">Cerrar Sesión</a>
             </nav>
         </header>
 
@@ -48,13 +48,13 @@
 
                         <footer class="reporte-acciones">
                             <?php if ($reporte['estado'] === 'Pendiente'): ?>
-                                <form action="../controlador/procesarAsignacion.php" method="POST" class="form-accion">
+                                <form action="/RennonaSoftware/app/controlador/procesarAsignacion.php" method="POST" class="form-accion">
                                     <input type="hidden" name="id_reporte" value="<?php echo $reporte['id_reporte']; ?>">
                                     <button type="submit" class="btn-accion btn-atender">Asignarme este ticket</button>
                                 </form>
                             
                             <?php elseif ($reporte['estado'] === 'En Proceso'): ?>
-                                <form action="../controlador/procesarResolucion.php" method="POST" class="form-accion">
+                                <form action="/RennonaSoftware/app/controlador/procesarResolucion.php" method="POST" class="form-accion">
                                     <input type="hidden" name="id_reporte" value="<?php echo $reporte['id_reporte']; ?>">
                                     <fieldset class="campo-observacion">
                                         <legend class="sr-only">Observaciones de la reparación</legend>

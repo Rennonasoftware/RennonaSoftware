@@ -2,7 +2,7 @@
 
 session_start();
 
-header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: text/plain; charset=utf-8');
 
 require_once __DIR__ . '/../modelo/AccesoDatosUsuario.php';
 
@@ -11,11 +11,7 @@ if (!isset($_SESSION['roles']) ||
 
     http_response_code(403);
 
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'No autorizado.'
-    ]);
-
+    echo 'No autorizado.';
     exit();
 }
 
@@ -30,37 +26,28 @@ $rol = $data['rol'] ?? '';
 
 if (!preg_match('/^[1-9][0-9]{7}$/', $cedula)) {
 
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Cédula inválida.'
-    ]);
-
+    http_response_code(400);
+    echo 'Cédula inválida.';
     exit();
 }
 
-if ($password !== '' && strlen($password) < 12) {
+if ($password !== '' && strlen($password) < 7) {
 
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'La contraseña debe tener al menos 12 caracteres.'
-    ]);
-
+    http_response_code(400);
+    echo 'La contraseña debe tener al menos 7 caracteres.';
     exit();
 }
 
 $rolesPermitidos = [
     'Administrador',
-    'Logistica',
+    'Tecnico',
     'Docente'
 ];
 
 if ($rol !== '' && !in_array($rol, $rolesPermitidos, true)) {
 
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Rol inválido.'
-    ]);
-
+    http_response_code(400);
+    echo 'Rol inválido.';
     exit();
 }
 
@@ -74,19 +61,14 @@ try {
         $rol
     );
 
-    echo json_encode([
-        'status' => $exito ? 'success' : 'error',
-        'message' => $exito
-            ? 'Usuario modificado correctamente.'
-            : 'No se pudo modificar el usuario.'
-    ]);
+    if (!$exito) {
+        http_response_code(400);
+    }
+    echo $exito ? 'Usuario modificado correctamente.' : 'No se pudo modificar el usuario.';
 
 } catch (Exception $e) {
 
     http_response_code(500);
 
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Error interno del servidor.'
-    ]);
+    echo 'Error interno del servidor.';
 }

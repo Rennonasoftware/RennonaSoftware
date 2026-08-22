@@ -15,6 +15,7 @@ class AccesoDatosUsuario
 
     public function obtenerTodosLosUsuarios()
     {
+        // GROUP_CONCAT permite mostrar en una sola fila todos los roles de cada usuario.
         $sql = "
             SELECT
                 u.cedula,
@@ -38,6 +39,7 @@ class AccesoDatosUsuario
     public function crearUsuario($cedula, $password, $rol)
     {
         try {
+            // Usuario y rol se guardan juntos: si una operación falla, ninguna queda aplicada.
             $this->conexion->beginTransaction();
 
             $sqlUsuario = "
@@ -129,6 +131,7 @@ class AccesoDatosUsuario
         $rol = ''
     ) {
         try {
+            // La transacción mantiene sincronizados el cambio de contraseña y la relación de roles.
             $this->conexion->beginTransaction();
 
             if (!empty($password)) {
@@ -223,6 +226,7 @@ class AccesoDatosUsuario
 
     public function obtenerPorCedula($cedula)
     {
+        // El JOIN devuelve una fila por rol; luego se agrupan para construir el objeto Usuario.
         $sql = "
             SELECT
                 u.cedula,

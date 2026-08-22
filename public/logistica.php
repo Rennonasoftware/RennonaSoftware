@@ -6,7 +6,7 @@ if (!isset($_SESSION['cedula'])) {
     exit();
 }
 
-$rolesPermitidos = ['tecnico', 'logistica'];
+$rolesPermitidos = ['tecnico'];
 $tienePermiso = false;
 
 if (isset($_SESSION['roles']) && is_array($_SESSION['roles'])) {
